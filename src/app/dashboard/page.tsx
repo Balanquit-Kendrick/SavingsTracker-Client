@@ -5,7 +5,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div>
+    <div className="flex flex-col h-full justify-center items-center  border-2">
       <p>This is the dashboard </p>
       <Link href="/">
         <Button variant="outline">
