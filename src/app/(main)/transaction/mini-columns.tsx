@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -12,62 +13,65 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpDown,
+  BanknoteArrowDown,
+  BanknoteArrowUp,
+  CircleCheck,
+  Clock3,
+  MoreHorizontal,
+  TriangleAlert,
+} from "lucide-react";
 
-export type Payment = {
+export type Transaction = {
   id: string;
   amount: number;
-  username: string;
+  category: string;
   email: string;
-  status: "success" | "failed" | "pending" | "processing";
+  username: string;
+};
+const categoryConfig = {
+  Withdrawal: {
+    class: "bg-red-400/10 text-red-400 inset-ring-red-500/20",
+    icon: <ArrowDown className="mr-1" width={16} height={16} />,
+  },
+  Deposit: {
+    class: "bg-green-400/10 text-green-400 inset-ring-green-500/20",
+    icon: <ArrowUp className="mr-1" width={16} height={16} />,
+  },
 };
 
-export const columns: ColumnDef<Payment>[] = [
-  // {
-  //   id: "select",
-  //   header: ({ table }) => (
-  //     <Checkbox
-  //       onCheckedChange={(value) => table.toggleAllRowsSelected(!!value)}
-  //       checked={
-  //         table.getIsAllRowsSelected() ||
-  //         (table.getIsSomePageRowsSelected() && "indeterminate")
-  //       }
-  //     />
-  //   ),
-  //   cell: ({ row }) => (
-  //     <Checkbox
-  //       onCheckedChange={(value) => row.toggleSelected(!!value)}
-  //       checked={row.getIsSelected()}
-  //     />
-  //   ),
-  // },
+export const columns: ColumnDef<Transaction>[] = [
   {
-    accessorKey: "username",
+    accessorKey: "email",
     header: ({ column }) => {
-      return <span className="pl-4">User</span>
+      return <span className="ml-2">Email</span>;
     },
     cell: ({ row }) => {
-      const username = row.getValue("username");
-      return <span className="pl-4">{username as string}</span>;
+      const email = row.getValue("email");
+
+      return <span className="ml-2">{email as string}</span>;
     },
   },
   {
-    accessorKey: "status",
-    header: "Status",
+    accessorKey: "category",
+    header: ({ column }) => {
+      return <span className="pl-4">Category</span>;
+    },
     cell: ({ row }) => {
-      const status = row.getValue("status");
-
+      const category = row.getValue("category") as keyof typeof categoryConfig;
       return (
-        <div
+        <span
           className={cn(
-            `p-1 rounded-md w-max text-xs`,
-            status === "pending" && "bg-yellow-500/40 ",
-            status === "success" && "bg-green-500/40 ",
-            status === "failed" && "bg-red-500/40 "
+            `inline-flex rounded-md px-2 py-1 text-xs font-medium`,
+            categoryConfig[category]?.class
           )}
         >
-          {status as string}
-        </div>
+          {categoryConfig[category]?.icon}
+          {category as string}
+        </span>
       );
     },
   },
@@ -88,7 +92,6 @@ export const columns: ColumnDef<Payment>[] = [
     id: "actions",
     cell: ({ row }) => {
       const payment = row.original;
-
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

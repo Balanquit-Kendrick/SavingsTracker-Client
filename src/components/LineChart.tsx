@@ -47,7 +47,7 @@ const chartConfig = {
 
 export function LineChart() {
   return (
-    <Card>
+    <Card >
       <CardHeader>
         <CardTitle>Savings Trend</CardTitle>
         <CardDescription>
