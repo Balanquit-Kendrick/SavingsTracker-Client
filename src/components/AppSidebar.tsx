@@ -95,7 +95,7 @@ const AppSidebar = () => {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <Button variant="outline">
+              <Button>
                 Logout
                 <LogOut />
               </Button>

@@ -1,6 +1,10 @@
 import React from "react";
 import { Transaction, columns } from "./columns";
 import { DataTable } from "./data-table";
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import TransactionSheet from "@/components/TransactionSheet";
 
 const getData = async (): Promise<Transaction[]> => {
   return [
@@ -259,16 +263,25 @@ const getData = async (): Promise<Transaction[]> => {
   ];
 };
 
-const PaymentsPage = async () => {
+const TransactionPage = async () => {
   const data = await getData();
   return (
     <div>
-      <div className="mb-8 px-4 py-2 bg-secondary rounded-md">
-        <h1 className="font-semibold">All Payments</h1>
+      <div className="mb-8 px-4 py-2 bg-secondary rounded-md justify-between flex items-center">
+        <h1 className="font-semibold">All Transactions</h1>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button>
+              <Plus />
+              Add Transaction
+            </Button>
+          </SheetTrigger>
+          <TransactionSheet />
+        </Sheet>
       </div>
       <DataTable columns={columns} data={data} />
     </div>
   );
 };
 
-export default PaymentsPage;
+export default TransactionPage;
