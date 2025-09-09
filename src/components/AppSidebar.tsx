@@ -1,53 +1,30 @@
 "use client";
 
 import {
-  Calendar,
   ChartArea,
-  ChevronDown,
-  ChevronUp,
-  DollarSign,
   Goal,
   Home,
-  Inbox,
   List,
   LogOut,
-  Plus,
-  Projector,
-  Search,
   Settings,
-  User,
-  User2,
-  Users,
 } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubItem,
   SidebarSeparator,
 } from "./ui/sidebar";
 import Link from "next/link";
-import Image from "next/image";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { Collapsible } from "@radix-ui/react-collapsible";
-import { CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { Button } from "./ui/button";
-import DogeIcon from "./DogeIcon";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 const items = [
   {
@@ -86,7 +63,7 @@ const AppSidebar = () => {
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link href="/">
-              <DogeIcon className={theme === "dark" ? "text-yellow-400" : "text-blue-500"} />
+                <Image src="/doge-1.svg" alt="Logo" width={24} height={24} color="black" />
                 <span>Ken Dev</span>
               </Link>
             </SidebarMenuButton>

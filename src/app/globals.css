@@ -41,6 +41,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --custom-color-1: var(--custom-color-1);
+  --custom-color-2: var(--custom-color-2);
 }
 
 :root {
@@ -76,6 +78,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --custom-color-1: oklch(62.793% 0.25768 29.223);
+  --custom-color-2: oklch(86.418% 0.29135 142.788);
 }
 
 .dark {
