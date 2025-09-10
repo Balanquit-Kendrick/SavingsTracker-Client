@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import GoalCard from "@/components/GoalCard";
 import { Goal, Plus } from "lucide-react";
 import React from "react";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import AddGoal from "@/components/AddGoal";
 
 export type Goal = {
   id: number;
@@ -42,10 +44,16 @@ const page = async () => {
     <div>
       <div className="mb-8 p-4 bg-secondary rounded-md justify-between flex items-center">
         <h1 className="text-xl font-semibold">Existing Goals</h1>
-        <Button>
+        
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button>
           <Plus />
-          Add Target
+          Add Target Goal
         </Button>
+          </SheetTrigger>
+          <AddGoal />
+        </Sheet>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
         {goalData.map(goal => (

@@ -40,7 +40,7 @@ const formSchema = z.object({
   category: z.string(),
   goal: z
     .string()
-    .min(2, { message: "Phone number must be at least 2 characters!" })
+    .min(2, { message: "Goal must be at least 2 characters!" })
     .max(20),
   location: z.string().min(2),
   targetDate: z.date(),
@@ -50,7 +50,7 @@ const formSchema = z.object({
 const categoryOptions = ["Withdrawal", "Deposit"];
 const goalOptions = ["Vacation", "New Car", "New Home", "Emergency Fund"];
 
-const TransactionSheet = () => {
+const AddTransaction = () => {
   const [open, setOpen] = useState(false)
   const [date, setDate] = useState<Date | undefined>(new Date())
   const form = useForm<z.infer<typeof formSchema>>({
@@ -67,7 +67,7 @@ const TransactionSheet = () => {
   return (
     <SheetContent>
       <SheetHeader>
-        <SheetTitle className="mb-4">Add Transaction</SheetTitle>
+        <SheetTitle className="mb-4">Add Target Goal</SheetTitle>
         <SheetDescription asChild>
           <Form {...form}>
             <form className="space-y-8">
@@ -199,4 +199,4 @@ const TransactionSheet = () => {
   );
 };
 
-export default TransactionSheet;
+export default AddTransaction;

@@ -24,14 +24,14 @@ const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
             ₱{goal.currentSavings.toLocaleString()}
           </span>
         </p>
-        <Progress
-          className="my-4 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
-          value={(goal.currentSavings / goal.targetAmount) * 100}
-        />
         <p className="italic mt-2">
           {((goal.currentSavings / goal.targetAmount) * 100).toFixed(1)}%
           <span className="mx-2 text-muted-foreground">Progress</span>
         </p>
+        <Progress
+          className=" w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+          value={(goal.currentSavings / goal.targetAmount) * 100}
+        />
       </div>
       <div>
         <img

@@ -4,7 +4,7 @@ import { DataTable } from "./data-table";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
-import TransactionSheet from "@/components/TransactionSheet";
+import AddTransaction from "@/components/AddTransaction";
 
 const getData = async (): Promise<Transaction[]> => {
   return [
@@ -276,7 +276,7 @@ const TransactionPage = async () => {
               Add Transaction
             </Button>
           </SheetTrigger>
-          <TransactionSheet />
+          <AddTransaction />
         </Sheet>
       </div>
       <DataTable columns={columns} data={data} />
