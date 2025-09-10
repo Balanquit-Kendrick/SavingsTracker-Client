@@ -41,7 +41,7 @@ const page = async () => {
   return (
     <div>
       <div className="mb-8 p-4 bg-secondary rounded-md justify-between flex items-center">
-        <h1 className="font-semibold">Existing Goals</h1>
+        <h1 className="text-xl font-semibold">Existing Goals</h1>
         <Button>
           <Plus />
           Add Target

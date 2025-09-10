@@ -11,7 +11,7 @@ const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
   return (
     <div className="bg-primary-foreground rounded-2xl p-8 flex justify-between items-center">
       <div className="w-full pr-10">
-        <h1 className="font-bold text-lg mb-2">{goal.name}</h1>
+        <h1 className="font-bold text-muted-foreground text-lg mb-2">{goal.name}</h1>
         <p className="text-sm text-muted-foreground mb-1">
           Target:
           <span className="text-lg text-primary px-2 font-semibold">
