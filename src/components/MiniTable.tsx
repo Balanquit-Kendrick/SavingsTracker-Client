@@ -1,6 +1,8 @@
 import React from "react";
 import { Transaction, columns } from "../app/(main)/transaction/mini-columns";
 import { DataTable } from "../app/(main)/transaction/mini-data-table";
+import { Maximize2 } from "lucide-react";
+import Link from "next/link";
 
 const getData = async (): Promise<Transaction[]> => {
   return [
@@ -263,8 +265,11 @@ const MiniTable = async () => {
   const data = await getData();
   return (
     <div>
-      <div className="mb-4 px-4 py-2 rounded-md">
+      <div className="mb-4 p-2 rounded-md flex justify-between items-center">
         <h1 className="font-semibold">Recent Transactions</h1>
+        <Link href="/transaction">
+          <Maximize2 size={16}/>
+        </Link>
       </div>
       <DataTable columns={columns} data={data} />
     </div>

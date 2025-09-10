@@ -267,7 +267,7 @@ const TransactionPage = async () => {
   const data = await getData();
   return (
     <div>
-      <div className="mb-8 px-4 py-2 bg-secondary rounded-md justify-between flex items-center">
+      <div className="mb-8 p-4 bg-secondary rounded-md justify-between flex items-center">
         <h1 className="font-semibold">All Transactions</h1>
         <Sheet>
           <SheetTrigger asChild>
