@@ -22,6 +22,7 @@ import {
   SidebarSeparator,
 } from "./ui/sidebar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -56,6 +57,7 @@ const items = [
 
 const AppSidebar = () => {
   const { theme } = useTheme();
+  const pathname = usePathname();
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="py-4">
@@ -76,16 +78,21 @@ const AppSidebar = () => {
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {items.map((item) => {
+                const isActive = pathname === item.url;
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton isActive={isActive} asChild>
+                      <Link
+                        href={item.url}
+                      >
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

@@ -9,7 +9,7 @@ interface GoalCardProps {
 
 const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
   return (
-    <div className="bg-primary-foreground rounded-2xl p-8 flex justify-between items-center">
+  <div className="bg-primary-foreground rounded-2xl p-8 flex justify-between items-center transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:-translate-y-1">
       <div className="w-full pr-10">
         <h1 className="font-bold text-muted-foreground text-lg mb-2">{goal.name}</h1>
         <p className="text-sm text-muted-foreground mb-1">
