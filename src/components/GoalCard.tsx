@@ -14,11 +14,11 @@ const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
         <h1 className="font-bold text-muted-foreground text-lg mb-2">{goal.name}</h1>
         <p className="text-sm text-muted-foreground mb-1">
           Target:
-          <span className="text-lg text-primary px-2 font-semibold">
+          <span className=" text-muted-foreground px-2 font-semibold">
             ₱{goal.targetAmount.toLocaleString()}
           </span>
         </p>
-        <p className="text-sm text-muted-foreground mb-1">
+        <p className="text-lg mb-1">
           Current Savings:
           <span className="text-lg text-primary px-2 font-semibold">
             ₱{goal.currentSavings.toLocaleString()}
